@@ -5,6 +5,6 @@
 |  |  |   |
 | :---:                              | :---:                             | :---:                              |
 | ![](screenshots/Screenshot_NavigationDrawer.png)  | ![](screenshots/Screenshot_Scoreboard.png) | ![](screenshots/Screenshot_Team.png)  |
-| ![](screenshots/Screenshot_Standings.png)  | ![](Screenshot_Player.png) | ![](screenshots/Screenshot_Batting.png)  |
+| ![](screenshots/Screenshot_Standings.png)  | ![](screenshots/Screenshot_Player.png) | ![](screenshots/Screenshot_Batting.png)  |
 | ![](screenshots/Screenshot_Pitching.png)  | ![](screenshots/Screenshot_Setting.png) | ![](screenshots/Screenshot_TeamDetail.png)  |
 | ![](screenshots/Screenshot_PlayerDetail.png)
