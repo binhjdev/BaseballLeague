@@ -8,3 +8,12 @@
 | ![](screenshots/Screenshot_Standings.png)  | ![](screenshots/Screenshot_Player.png) | ![](screenshots/Screenshot_Batting.png)  |
 | ![](screenshots/Screenshot_Pitching.png)  | ![](screenshots/Screenshot_Setting.png) | ![](screenshots/Screenshot_TeamDetail.png)  |
 | ![](screenshots/Screenshot_PlayerDetail.png)
+
+## Features
+
+- Architecture MVVM Android Architecture Components (Room, LiveData, ViewModel, Paging, Lifecyle, Preference)
+- Full reactive programming with [RxKotlin](https://github.com/ReactiveX/RxKotlin).
+- Networking with [Retrofit](https://square.github.io/retrofit/), [Moshi](https://github.com/square/moshi)
+- Search data with [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+- Local data with [Room Persistence](https://developer.android.com/topic/libraries/architecture/room).
+- Update user with [Jetpack WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager).
