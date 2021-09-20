@@ -17,3 +17,7 @@
 - Search data with [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
 - Local data with [Room Persistence](https://developer.android.com/topic/libraries/architecture/room).
 - Update user with [Jetpack WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager).
+
+## Trying:
+
+  [Debug apk](https://github.com/binhjdev/BaseballLeague/blob/master/outputs/app-debug.apk)
