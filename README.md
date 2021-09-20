@@ -20,4 +20,4 @@
 
 ## Trying:
 
-  [Debug apk](https://github.com/binhjdev/BaseballLeague/blob/master/outputs/app-debug.apk)
+  [Debug apk](https://github.com/binhjdev/BaseballLeague/raw/master/outputs/app-debug.apk)
