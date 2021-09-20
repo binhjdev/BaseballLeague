@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="dev.binhjdev.androidbasketballleague.ui.teams.UITeam" />
+
+        <variable
+            name="vm"
+            type="dev.binhjdev.androidbasketballleague.ui.players.SinglePlayerViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_corner_radius">
+
+            <ImageView
+                android:id="@+id/ivSinglePlayerTeamLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:padding="5dp"
+                android:src="@{UITeam.fromTeamId(vm.playerWithStats.player.teamId).logoId}"
+                app:layout_constraintBottom_toBottomOf="@id/tvSinglePlayerPosition"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvSinglePlayerName"
+                tools:src="@drawable/fi_ic_electric_guitar" />
+
+            <TextView
+                android:id="@+id/tvSinglePlayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@{vm.playerWithStats.player.fullName}"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/tvSinglePlayerNumber"
+                app:layout_constraintStart_toEndOf="@id/ivSinglePlayerTeamLogo"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Ulfric Gardisson" />
+
+            <TextView
+                android:id="@+id/tvSinglePlayerNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text='@{"#" + vm.playerWithStats.player.number}'
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvSinglePlayerName"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="#55" />
+
+            <TextView
+                android:id="@+id/tvSinglePlayerPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.playerWithStats.player.position.shortName}"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@id/tvSinglePlayerBats"
+                app:layout_constraintStart_toEndOf="@id/ivSinglePlayerTeamLogo"
+                app:layout_constraintTop_toBottomOf="@id/tvSinglePlayerName"
+                tools:text="SP" />
+
+            <View
+                android:id="@+id/singlePlayerPositionBatsSeparator"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/lightGray"
+                app:layout_constraintBottom_toBottomOf="@id/tvSinglePlayerPosition"
+                app:layout_constraintEnd_toStartOf="@id/tvSinglePlayerBats"
+                app:layout_constraintStart_toEndOf="@id/tvSinglePlayerPosition"
+                app:layout_constraintTop_toTopOf="@id/tvSinglePlayerPosition" />
+
+            <TextView
+                android:id="@+id/tvSinglePlayerBats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{"Bats: " + vm.playerWithStats.player.batsWith}'
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@id/singlePlayerBatsThrowsSeparator"
+                app:layout_constraintStart_toEndOf="@id/singlePlayerPositionBatsSeparator"
+                app:layout_constraintTop_toBottomOf="@id/tvSinglePlayerName"
+                tools:text="Bats : Right" />
+
+            <View
+                android:id="@+id/singlePlayerBatsThrowsSeparator"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="@color/lightGray"
+                app:layout_constraintBottom_toBottomOf="@id/tvSinglePlayerThrows"
+                app:layout_constraintEnd_toStartOf="@id/tvSinglePlayerThrows"
+                app:layout_constraintStart_toEndOf="@id/tvSinglePlayerBats"
+                app:layout_constraintTop_toTopOf="@id/tvSinglePlayerThrows" />
+
+            <TextView
+                android:id="@+id/tvSinglePlayerThrows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text='@{"Throws: " + vm.playerWithStats.player.throwsWith}'
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/singlePlayerBatsThrowsSeparator"
+                app:layout_constraintTop_toBottomOf="@id/tvSinglePlayerName"
+                tools:text="Throws: Right" />
+
+
+            <View
+                android:id="@+id/singlePlayerInfoStatsSeparator"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_margin="8dp"
+                android:background="@color/lightGray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSinglePlayerPosition" />
+
+            <include
+                android:id="@+id/singlePlayerStats"
+                layout="@layout/single_player_stats"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/singlePlayerInfoStatsSeparator"
+                app:stats="@{vm.stats}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</layout>

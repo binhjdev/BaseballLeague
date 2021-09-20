@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="leader"
+            type="dev.binhjdev.androidbasketballleague.ui.leaders.LeaderListItem" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{clickListener}">
+
+        <TextView
+            android:id="@+id/tvLeadersStatCategory"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/basic_circle"
+            android:gravity="center"
+            android:text='@{leader.statCategory}'
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="WHIP" />
+
+        <TextView
+            android:id="@+id/tvLeadersPlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:text='@{leader.player.boxScoreLastName}'
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/tvLeadersPlayerTeamName"
+            app:layout_constraintStart_toEndOf="@id/tvLeadersStatCategory"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Binh Truong" />
+
+        <TextView
+            android:id="@+id/tvLeadersPlayerTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text='@{leader.teamName}'
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvLeadersStatCategory"
+            app:layout_constraintTop_toBottomOf="@id/tvLeadersPlayerName"
+            tools:text="Riffs" />
+
+        <TextView
+            android:id="@+id/tvLeadersStatValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{leader.statValue}'
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text=".378" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

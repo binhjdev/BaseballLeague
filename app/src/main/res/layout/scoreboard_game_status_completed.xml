@@ -1,0 +1,19 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="game"
+            type="dev.binhjdev.androidbasketballleague.ui.scoreboard.ScheduleGame" />
+    </data>
+
+    <TextView
+        android:id="@+id/tvScoreboardStatusUpComing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text='@{"Final" + (game.inning != 9 ? "/" + game.inning : "")}'
+        android:textStyle="bold"
+        tools:text="Final/10" />
+</layout>

@@ -1,0 +1,113 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import
+            alias="UIExtensions"
+            type="dev.binhjdev.androidbasketballleague.util.UIExtensionsKt" />
+
+        <variable
+            name="game"
+            type="dev.binhjdev.androidbasketballleague.ui.scoreboard.ScheduleGame" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scoreboardStatus"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvScoreboardStatusInning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{UIExtensions.getInningText(game)}"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Top 8" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/tvScoreboardStatusCountOuts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvScoreboardStatusInning">
+
+            <ImageView
+                android:id="@+id/ivScoreboardStatusFirstBase"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/scoreboard_first_base"
+                android:src="@drawable/scoreboard_status_base"
+                app:isOccupied="@{game.occupiedBases.first}"
+                app:layout_constraintHeight_percent=".5"
+                app:layout_constraintStart_toEndOf="@id/ivScoreboardStatusThirdBase"
+                app:layout_constraintTop_toTopOf="@id/glScoreboardStatusUpperGuideline"
+                app:layout_constraintWidth_percent=".5" />
+
+            <ImageView
+                android:id="@+id/ivScoreboardStatusSecondBase"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/scoreboard_second_base"
+                android:src="@drawable/scoreboard_status_base"
+                app:isOccupied="@{game.occupiedBases.second}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".5" />
+
+            <ImageView
+                android:id="@+id/ivScoreboardStatusThirdBase"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/scoreboard_third_base"
+                android:src="@drawable/scoreboard_status_base"
+                app:isOccupied="@{game.occupiedBases.third}"
+                app:layout_constraintEnd_toStartOf="@id/ivScoreboardStatusFirstBase"
+                app:layout_constraintHeight_percent=".5"
+                app:layout_constraintTop_toTopOf="@id/glScoreboardStatusUpperGuideline"
+                app:layout_constraintWidth_percent=".5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glScoreboardStatusUpperGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent=".333333333"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glScoreboardStatusMidGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent=".5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvScoreboardStatusCountOuts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{game.outs + " out"}'
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="2 out" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

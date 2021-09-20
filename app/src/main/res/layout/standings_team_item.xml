@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="uiTeamStanding"
+            type="dev.binhjdev.androidbasketballleague.ui.standings.UITeamStanding" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickListener}"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/teamId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{uiTeamStanding.teamId}"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="PKE" />
+
+        <TextView
+            android:id="@+id/tvTeamWins"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{uiTeamStanding.wins}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvTeamLosses"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="102" />
+
+        <TextView
+            android:id="@+id/tvTeamLosses"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{uiTeamStanding.losses}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvTeamWinPercentage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="52" />
+
+        <TextView
+            android:id="@+id/tvTeamWinPercentage"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{uiTeamStanding.winPercentage}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvTeamGamesBack"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text=".642" />
+
+        <TextView
+            android:id="@+id/tvTeamGamesBack"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{uiTeamStanding.gamesBackText}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvTeamLastTen"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4.0" />
+
+        <TextView
+            android:id="@+id/tvTeamLastTen"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{uiTeamStanding.lastTenText}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvTeamStreak"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="6-4" />
+
+        <TextView
+            android:id="@+id/tvTeamStreak"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{uiTeamStanding.streakText}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="W3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

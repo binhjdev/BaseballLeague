@@ -1,0 +1,41 @@
+package dev.binhjdev.androidbasketballleague.ui.setting
+
+import android.content.Context
+import android.util.Log
+import androidx.work.CoroutineWorker
+import androidx.work.WorkerParameters
+import dev.binhjdev.androidbasketballleague.data.model.AppSettingsApiModel
+import dev.binhjdev.androidbasketballleague.services.getDefaultABLService
+import java.lang.Exception
+
+class SaveSettingsWorker(appContext: Context, params: WorkerParameters) : CoroutineWorker(appContext, params) {
+
+    override suspend fun doWork(): Result = try {
+        val userName = inputData.getString(userNameKey)
+
+        if (userName != null) {
+            Log.i(TAG, "Saving user settings for $userName")
+            getDefaultABLService().saveAppSettings(
+                    AppSettingsApiModel(
+                            userName,
+                            inputData.getString(favoriteTeamKey) ?: "",
+                            inputData.getBoolean(favoriteTeamColorCheckKey, false),
+                            inputData.getString(startingScreenKey) ?: ""
+                    )
+            )
+        }
+
+        Result.success()
+    } catch (ex: Exception) {
+        Log.e(TAG, "Exception saving settings to API")
+        Result.failure()
+    }
+
+    companion object {
+        const val TAG = "SaveSettingWorker"
+        const val userNameKey = "userName"
+        const val favoriteTeamKey = "favoriteTeam"
+        const val favoriteTeamColorCheckKey = "favoriteTeamColorCheck"
+        const val startingScreenKey = "startingScreenKey"
+    }
+}

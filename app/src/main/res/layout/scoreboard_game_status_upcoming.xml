@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import
+            alias="UIExtensions"
+            type="dev.binhjdev.androidbasketballleague.util.UIExtensionsKt" />
+
+        <variable
+            name="game"
+            type="dev.binhjdev.androidbasketballleague.ui.scoreboard.ScheduleGame" />
+    </data>
+
+    <TextView
+        android:id="@+id/tvScoreboardStatusUpComing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@{UIExtensions.getGameStartTimeText(game)}"
+        android:textStyle="bold"
+        tools:text="6:00 PM CT">
+
+    </TextView>
+</layout>

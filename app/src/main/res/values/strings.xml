@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Android Basketball League</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="teams">Teams</string>
+    <string name="abl">ABL</string>
+    <string name="score_board">Scoreboard</string>
+    <string name="standings">Standings</string>
+    <string name="player">Players</string>
+    <string name="leader">Leaders</string>
+    <string name="setting">Settings</string>
+    <string name="about">About</string>
+    <string name="wins_w">W</string>
+    <string name="losses_l">L</string>
+    <string name="percentage_abbr">PCT</string>
+    <string name="games_back_abbr">GB</string>
+    <string name="last_ten_abbr">L10</string>
+    <string name="streak_abbr">STRK</string>
+    <string name="in_abl">in ABL</string>
+    <string name="view_roster">View Roster</string>
+    <string name="network_exception_message">A network error has occurred. Please check your connection and try again.</string>
+    <string name="request_exception_message">The API request was invalid. Please try again.</string>
+    <string name="general_exception_message">An error occurred retrieving data. Please try again.</string>
+    <string name="scoreboard_first_base">Scoreboard First Base</string>
+    <string name="scoreboard_second_base">Scoreboard Second Base</string>
+    <string name="scoreboard_third_base">Scoreboard Third Base</string>
+    <string name="scoreboard_left_arrow">Scoreboard Left Arrow</string>
+    <string name="scoreboard_right_arrow">Scoreboard Right Arrow</string>
+    <string name="search_players">Search Players…</string>
+    <string name="team_color_nav_bar">Use Team Color for Nav Bar?</string>
+    <string name="favorite_team">Favorite Team</string>
+    <string name="user_name">User Name</string>
+    <string name="none">None</string>
+    <string name="starting_location">Starting Location</string>
+    <string name="info_about_the_app">Information about the app</string>
+    <string name="credits">Credits</string>
+</resources>

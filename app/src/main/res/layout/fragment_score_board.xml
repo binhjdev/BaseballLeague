@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="dev.binhjdev.androidbasketballleague.ui.scoreboard.ScoreboardViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_white"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_white"
+            tools:context=".ui.scoreboard.ScoreBoardFragment">
+
+            <ImageView
+                android:id="@+id/ivScoreboardChangeYesterday"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="?attr/colorPrimary"
+                android:contentDescription="@null"
+                android:longClickable="true"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/ic_baseline_arrow_left_24"
+                app:layout_constraintBottom_toBottomOf="@id/tvScoreboardCurrentDate"
+                app:layout_constraintEnd_toStartOf="@id/tvScoreboardCurrentDate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tvScoreboardCurrentDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@{vm.currentDateText}"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/ivScoreboardChangeTomorrow"
+                app:layout_constraintStart_toEndOf="@id/ivScoreboardChangeYesterday"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Wednesday, Oct 28" />
+
+            <ImageView
+                android:id="@+id/ivScoreboardChangeTomorrow"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:background="?attr/colorPrimary"
+                android:contentDescription="@null"
+                android:foregroundGravity="right"
+                android:longClickable="true"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:scaleType="fitEnd"
+                android:src="@drawable/ic_baseline_arrow_right_24"
+                app:layout_constraintBottom_toBottomOf="@id/tvScoreboardCurrentDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvScoreboardCurrentDate"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@android:color/white" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical"
+            app:isVisible="@{vm.games != null  &amp;&amp; vm.games.size() > 0}">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <include
+                    android:id="@+id/scoreboardGameOne"
+                    layout="@layout/scoreboard_game"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:game="@{vm.games[0]}" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <include
+                    android:id="@+id/scoreboardGameTwo"
+                    layout="@layout/scoreboard_game"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:game="@{vm.games[1]}" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <include
+                    android:id="@+id/scoreboardGameThree"
+                    layout="@layout/scoreboard_game"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:game="@{vm.games[2]}" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
